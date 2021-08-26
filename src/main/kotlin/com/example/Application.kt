@@ -5,6 +5,7 @@ import com.example.models.DataSession
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import com.example.plugins.*
+import com.google.gson.Gson
 import io.ktor.application.*
 import io.ktor.sessions.*
 import io.ktor.util.*
@@ -19,7 +20,7 @@ fun main() {
 }
 
 val server = DrawingService()
-
+val gson = Gson()
 fun Application.module() {
     install(Sessions) {
         cookie<DataSession>("user_session")
